@@ -1,0 +1,607 @@
+
+                         JGoodies Validation
+                            Release Notes
+                        
+Changes in 2.4.0 ----------------------------------------------------------
+                    
+    o Requires Java 6 and JGoodies Common 1.3.
+    o Added Severity.INFO and related methods.
+    o DefaultValidationResultModel#setResult ensures that 
+      the ValidationResult stored is unmodifiable. 
+      If modifiable, an unmodifiable copy is set.
+    o Removed deprecated constant names from ValidationResultModel.
+
+
+Changes in 2.3.2 ----------------------------------------------------------
+                    
+    o ValidationResultViewFactory#createReportIconAndTextLabel
+      displays the text of the first message with the highest severity.
+    o The constant names for ValidationResultModel bound properties
+      have been renamed from PROPERTYNAME_XXX to PROPERTY_XXX.
+      The old constants are still available but are deprecated now;
+      they will be removed from a future library version.
+    
+                        
+Changes in 2.3.1 ----------------------------------------------------------
+                    
+    o Source code improvements.
+    o Updated libraries.
+    
+                        
+Changes in 2.3.0 ----------------------------------------------------------
+                        
+NEW FEATURES
+
+    o Added ValidationResult#addError(String text, String key)
+    o Added ValidationResult#addWarning(String text, String key)
+    o Added the ValidationResultModelProvider interface.
+
+
+Changes in 2.2.0 ----------------------------------------------------------
+                        
+INTRODUCTION
+
+    This update is a code cleanup. It requires and is based on 
+    the new JGoodies Common library. Make sure that you include 
+    jgoodies-common-1.1.1.jar or later in your classpath 
+    when using this Validation version.
+    
+
+INCOMPATIBLE CHANGES
+
+    o Removed classes EmptyDateFormatter, EmptyNumberFormatter,
+      and RelativeDateFormatter. These were not used by library
+      classes but have been used for the tutorial sources.
+    o Moved ValidationUtils#equals to Common Objects#equals.
+    o Moved ValidationUtils#isBlank, #isNotBlank, #isEmpty, and
+      #isNotEmpty to the Common class Strings.
+      
+      
+NEW FEATURES
+
+    o Removed the final marker from PropertyValidationMessage.
+    o Removed the final marker from PropertyValidationSupport.
+    o ValidationResultModel implements ObservableBean2.
+
+
+OTHER CHANGES
+
+    o All classes now use the Common class Preconditions
+      to check preconditions on method state and parameters.
+
+---------------------------------------------------------------------------
+Find below the change history for older releases.
+
+
+
+                         JGoodies Validation
+                            Version 2.1.0
+                            Release Notes
+                        
+INTRODUCTION
+
+    This update ships minor extensions and improvements.
+    
+
+NEW FEATURES
+
+    o ValidationResult implements Iterable.
+    o Added ValidationResult#get(int).
+    
+OTHER CHANGES
+
+    o Added ValidationResult tests for #get, #size, #contains, Iterable.
+
+---------------------------------------------------------------------------
+Find below the change history for older releases.
+
+
+                         JGoodies Validation
+                            Version 2.0.2
+                            Release Notes
+                        
+
+INTRODUCTION
+
+    This maintenance release updates the referenced libraries
+    and comes with a slightly improved tutorial.
+    
+
+OTHER CHANGES
+
+    o Updated the Binding version used for the tutorial to 2.0.6.
+    o Updated the Forms version used for the tutorial to 1.2.1.
+    o Prepared for using layout variables in the tutorial.
+    o Overhauled the tutorial application launch and configuration.
+    
+---------------------------------------------------------------------------
+Find below the change history for older releases.
+
+
+
+                         JGoodies Validation
+                            Version 2.0.1
+                            Release Notes
+                        
+
+INTRODUCTION
+
+    This maintenance release brings slightly improved JavaDocs,
+    and improved tutorial sources.
+    
+
+OTHER CHANGES
+
+    o Updated the Binding version used for the tutorial to 2.0.3.
+    o Updated the Forms version used for the tutorial to 1.2.0.
+    o The download link points to the JGoodies.com library page.
+
+    
+---------------------------------------------------------------------------
+Find below the change history for older releases.
+
+
+
+
+                         JGoodies Validation
+                            Version 2.0.0
+                            Release Notes
+                        
+
+INTRODUCTION
+
+    Since version 2.0 the JGoodies Validation uses and requires Java 5.
+    It uses the enhanced for loop, enums, and annotations; classes and 
+    methods have been generified where useful. This version is binary 
+    incompatible with previous versions.
+    
+    Also, the old Validator interface has been renamed to Validatable,
+    it describes objects that can validate themselves. A new Validator 
+    describes objects that can validate other objects. Validator uses 
+    the following signature:
+        ValidationResult validate(T validationTarget).
+    
+
+OTHER CHANGES
+
+    o Updated the Binding version used for the tutorial to 2.0.0.
+    o The tutorial now uses the SwingWorker backport for Java 5.
+    o The tutorial demonstrates the Validatable and Validator interfaces.
+    o Source cleanup: marked fields as final, removed trailing blanks.
+    o Fixed JavaDoc typos.
+
+    
+---------------------------------------------------------------------------
+Find below the change history for older releases.
+
+
+
+                         JGoodies Validation
+                            Version 1.4.0
+                            Release Notes
+                        
+
+INTRODUCTION
+
+    This release includes binary incompatible changes. Components
+    can now be associated with multiple validation message keys.
+	
+
+CHANGES THAT AFFECT THE BINARY COMPATIBILITY
+
+    o Added ValidationComponentUtils#setMessageKeys(Object[])
+    o Replaced ValidationComponentUtils#getMessageKey by #getMessagesKeys.
+    o Added ValidationResult#subResult(Object[])
+    
+    
+CHANGES THAT AFFECT THE BEHAVIOR
+
+    o ValidationResult#keyMap returns a Map of unmodifiable results.
+      The map itself was unmodifiable before.
+    o ValidationResult#subResult returns an unmodifiable result.
+    o Renamed the (internal) client property key from
+      "validation.messageKey" to "validation.messageKeys".
+      
+      
+OTHER CHANGES
+
+    o Added ValidationMessageKeysExample to demonstrate the new feature.
+    o Updated the Binding version used for the tutorial to 1.3.1.
+
+    
+---------------------------------------------------------------------------
+Find below the change history for older releases.
+
+
+
+
+                         JGoodies Validation
+                            Version 1.3.1
+                            Release Notes
+                        
+
+INTRODUCTION
+
+    This release brings a few minor implementation improvements 
+    and slightly better JavaDocs.
+	
+
+BUGS FIXED
+    
+    #18: IconFeedbackPanel tool tip text misses line break
+          
+    
+OTHER CHANGES
+
+    o Improved the performance of ValidationResult methods:
+      #getSeverity, #hasMessages, #hasErrors, #hasWarnings,
+      #getErrors, #getWarnings.
+    o ValidationResult uses an ArrayList, not a LinkedList.
+    o Improved ValidationResultListAdapter#getSize() implementation.
+    o Improved and/or fixed JavaDoc comments.
+    o Minor source code improvements.
+    
+    
+---------------------------------------------------------------------------
+Find below the change history for older releases.
+
+
+
+                         JGoodies Validation
+                             Version 1.3
+                            Release Notes
+                        
+
+INTRODUCTION
+
+    This release fixes a minor bug and contains no deprecated methods.
+    
+	
+
+CHANGES THAT AFFECT THE COMPATIBILITY
+
+    o The deprecated methods ValidationUtils#isDigit, #isLetter, 
+      and #isLetterOrDigit have been removed. These methods have been
+      replaced by #isNumeric, #isAlpha, #isAlphanumeric.
+
+
+BUGS FIXED
+    
+    o Issue 17: IconFeedbackPanel ignores ComponentOrientation.
+          
+    
+OTHER CHANGES
+
+    o Minor source code style improvements.
+    
+    
+---------------------------------------------------------------------------
+Find below the change history for older releases.
+
+
+
+                         JGoodies Validation
+                             Version 1.2
+                            Release Notes
+                        
+
+INTRODUCTION
+
+    This release removes the deprecated ValidationCapable interface,
+    introduces a few new ValidationUtils, and comes with slightly
+    improved JavaDocs. The FAQ has been extended and is now online. 
+    
+	
+
+CHANGES THAT AFFECT THE COMPATIBILITY
+
+    o The deprecated ValidationCapable interface has been removed.
+      Use the Validator interface instead.
+
+
+NEW FEATURES
+    
+    To make it easier to switch between the ValidationUtils
+    and the Jakarta Commons Lang StringUtils I've added:
+      ValidationUtils#isNotBlank, #isNotEmpty, #isAlpha, 
+      #isAlphaSpace, #isAlphanumeric, #isAlphanumericSpace, 
+      #isNumeric, #isNumericSpace.
+          
+    
+OTHER CHANGES
+
+    o ValidationUtils#isDigit, #isLetter, and #isLetterOrDigit
+      have been marked as deprecated. These methods have been
+      replaced by #isNumeric, #isAlpha, #isAlphanumeric.
+      The deprecated methods will be removed in version 1.3.
+    o Improved implementation of ValidationUtils#isBlank.
+    o Added tests for the ValidationUtils methods.
+    o Added missing package documentations.
+    o Added a few tutorial JavaDocs.
+    
+    
+---------------------------------------------------------------------------
+Find below the change history for older releases.
+
+
+
+                         JGoodies Validation
+                            Version 1.1.1
+                            Release Notes
+                        
+
+INTRODUCTION
+
+    This release fixes a minor bug and brings new tutorial examples. 
+    
+    The PerformanceExample demonstrates different approaches
+    to reducing the validation frequency, costs, and GUI locks;
+    see the package com.jgoodies.validation.tutorial.performance.
+    
+    The SimpleDomainValidationExample "copies" the domain values 
+    to the GUI, where the other examples use the JGoodies Binding 
+    to synchronize the domain with the GUI state. Also, this 
+    example presents validation errors and warnings in a dialog.
+	
+
+CHANGES THAT AFFECT THE COMPATIBILITY
+
+    o The ValidationResult methods #add and #addAll now ensure 
+      that the message severity is WARNING, or ERROR, not OK. 
+      This constraint is already ensured by all subclasses
+      of AbstractValidationMessages, but it can be violated
+      by other implementors of the ValidationMessage interface.
+
+
+BUGS FIXED
+    
+    o Issue 15: ValidationComponentUtils shall observe L&f changes.
+    
+    
+OTHER CHANGES
+
+    o Updated the tutorial's Binding library to version 1.1.1.
+    o The ANT build can create a Maven bundle.
+    o RelativeDateFormatter initializes the default bundle lazily.
+    o Corrected the JavaDocs for ValidationMessage#severity and
+      ValidationResult#getSeverity.
+    o Added tutorial examples for handling slow validation operations.
+    
+    
+---------------------------------------------------------------------------
+Find below the change history for older releases.
+
+
+
+
+                         JGoodies Validation
+                             Version 1.1
+                            Release Notes
+                        
+
+INTRODUCTION
+
+    This maintenance release is primarily an API cleanup that
+    contains binary incompatible changes to version 1.0.
+    
+    The ValidationCapable interface has been renamed to Validator.
+    For backward compatibility the now deprecated ValidationCapable
+    is still available as an extension of the Validator interface.
+    It is recommended to move your code over to Validator,
+    because ValidationCapable will be removed in version 1.2.
+	
+
+CHANGES THAT AFFECT THE COMPATIBILITY
+
+    o Renamed ValidationCapable to Validator. 
+    o Moved ValidationResultModel to com.jgoodies.validation.
+    o AbstractValidationMessage#setKey, severity and #text() final.
+    o PropertyValidationMessage marked as final.
+    o SimpleValidationMessage marked as final.
+    o Removed DefaultValidationResultModel#setValidationResult0.
+    o Removed the deprecated ValidationComponentUtils method
+      #updateComponentTreeValidationBackground that has been replaced
+      by #updateComponentTreeSeverityBackground in 1.0.2.
+    
+    
+BUGS FIXED
+    
+    o Issue 11: Component background updates broken.
+    o Issue 14: ValidationResultListAdapter events broken. 
+    
+    
+NEW FEATURES
+
+    o ValidationResults can be turned into unmodifiable versions
+      using ValidationResult#unmodifiableResult(ValidationResult). 
+      This is useful to ensure that results that are intended 
+      to be unmodifiable reject further modifications. 
+    
+    
+DISTRIBUTION CHANGES
+
+    o The sources no longer ship as a source Zip archive.
+      They now come in the directory structure used by the CVS. 
+      This makes it easier to build the distribution using ANT.     
+      If you want to attach the library sources in an IDE, 
+      point to folder 'src/core'.
+    o Updated the tutorial's Binding library to version 1.1.
+    
+    
+---------------------------------------------------------------------------
+Find below the change history for older releases.
+
+
+
+                 JGoodies Validation, Version 1.0.3
+                            Release Notes
+                        
+
+INTRODUCTION
+
+    This maintenance release contains primarily a performance improvement.
+    It can reduce unnecessary change notifications for the "result"
+    property in ValidationResultModels when changing the validation result.
+    This is achieved by overriding #equals in classes ValidationResult,
+    SimpleValidationResult and PropertyValidationResult.
+    
+    Implementors of ValidationMessage are encouraged to override 
+    #equals and #hashCode in their implementations.
+
+
+CHANGES THAT AFFECT THE COMPATIBILITY
+
+    o SimpleValidationMessage constructors reject null texts.
+    o ValidationResult#keyMap returns an unmodifiable Map.
+    
+    
+NEW FEATURES
+    
+    o Issue 13: ValidationResult#equals and #hashCode.
+    o PropertyValidationMessage#equals and #hashCode.
+    o SimpleValidationMessage#equals and #hashCode.
+      This prevents the AbstractValidationResultModel
+      from firing unnecessary property change events for
+      the "result" property when changing the validation result.
+      See also #firePropertyChanges(ValidationResult, ValidationResult).
+      
+    
+OTHER CHANGES
+
+    o Added tests for the new equality checks.
+    o Updated the tutorial's Binding version to 1.0.3.
+    
+    
+---------------------------------------------------------------------------
+Find below the change history for older releases.
+
+
+
+                 JGoodies Validation, Version 1.0.2
+                            Release Notes
+                        
+
+INTRODUCTION
+
+    This release primarily fixes bugs in the IconFeedbackPanel
+    and the ValidationComponentUtils. It also clarifies semantics 
+    of the ValidationComponentUtils#updateComponentTreeXXX methods.
+
+
+BUGS FIXED
+    
+    o Issue  8: IconFeedbackPanel: misplaced overlay icons.
+    o Issue 11: Component background updates broken.
+    
+    
+NEW FEATURES
+    
+    o SimpleValidationMessage(String, Severity, Object)
+    o ValidationComponentUtils#getErrorBackground()
+    o ValidationComponentUtils#getWarningBackground()
+    o ValidationComponentUtils#updateComponentTreeSeverityBackground()
+      This new method shows a background consistent with the 
+      severity annotations presented by the IconFeedbackPanel
+      making it easier to switch between both visualizations.
+      
+      In contrast the "old" #updateComponentTreeValidationBackground
+      checks for mandatory blank fields first. If a blank mandatory
+      value is a warning or error in your validator, the presentation
+      is inconsistent with the validation result. 
+      If you don't mark components as mandatory using #setMandatory, 
+      you won't notice a difference between both methods. 
+          
+      I consider removing this method in a future version and 
+      have marked it as deprecated.
+      
+    
+OTHER CHANGES
+
+    o Added tests for the ValidationComponentUtils.
+    o Fixed and improved a couple of JavaDocs.
+    o The ComponentFeedbackExample now shows the initial
+      validation state. A comment in the source explains
+      how to suppress the initial warnings and errors.
+    o The ComponentFeedbackExample uses the new method
+      ValidationComponentUtils#updateComponentTreeSeverityBackground().
+    
+    
+---------------------------------------------------------------------------
+Find below the change history for older releases.
+
+
+
+                 JGoodies Validation, Version 1.0.1
+                            Release Notes
+                        
+
+INTRODUCTION
+
+    This is primarily a bug fix release.
+
+
+CHANGES THAT AFFECT THE COMPATIBILITY
+
+    o DefaultValidationResultModel#setResult rejects null values.
+    
+    
+NEW FEATURES
+    
+    o Added AbstractValidationResultModel.
+    o Added DelayedValidationResultModel to the Extra sources.
+
+
+BUGS FIXED
+    
+    o Issue  7: IconFeedbackPanel: broken overlay icons.
+    o Issue  8: IconFeedbackPanel: misplaced overlay icons.
+    o Issue  9: ValidationViewUtils#restoreBackground ignores 
+                editable and enabled state.
+    o Issue 10: ValidationViewUtils visits too much text components.
+    
+    
+OTHER CHANGES
+
+    o Deprecated DefaultValidationResultModel#setValidationResult0.
+    o Improved IconFeedbackPanel JavaDocs to clarify issue #6.
+    o Updated the Binding library used in the validation tutorial.
+    o Set 'build.compile.source' and 'build.compile.target' to '1.4'
+      in the default.properties; build.xml honors the source setting.
+    o Improved the style of the Java sources:
+      + ensured consistent modifier order,
+      + fixed JavaDoc tags.
+    
+    
+---------------------------------------------------------------------------
+Find below the change history for older releases.
+
+
+
+                   JGoodies Validation, Version 1.0
+                            Release Notes
+                        
+
+INTRODUCTION
+
+    This release comes with an extended and corrected documentation,
+    an FAQ, and references to relevant information and related projects.
+
+
+CHANGES THAT AFFECT THE COMPATIBILITY
+
+    o Removed the deprecated AbstractConverter#isBlank and #isEmpty.
+    o Removed the deprecated class EmptyFormatter.
+    o BasicComponentFactory#createDateField parses non-lenient (strict).
+
+
+OTHER CHANGES
+
+    o Fixed JavaDoc typos in EmptyNumberFormatter.
+    o Improved JavaDocs in the ExampleComponentFactory.
+    o Prevented external mutation of EmptyDateFormatter's empty value.
+    o Fixed broken package information in the JAR manifest.
+    o Fixed broken L&f change in tutorial's ComponentFeedbackExample.
+    o Fixed broken links in the HTML documentation.
+    o Added references to relevant information and related projects.
+    o Added an FAQ.
+    

@@ -1,0 +1,8 @@
+com.jgoodies.binding
+com.jgoodies.binding.adapter
+com.jgoodies.binding.beans
+com.jgoodies.binding.binder
+com.jgoodies.binding.extras
+com.jgoodies.binding.list
+com.jgoodies.binding.util
+com.jgoodies.binding.value
